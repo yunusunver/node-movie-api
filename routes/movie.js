@@ -18,7 +18,23 @@ router.get('/top10',(res,req)=>{
 
 router.get('/',(req,res)=>{
 
-  const promise=Movie.find({});
+  const promise=Movie.aggregate([
+    {
+      $lookup:{
+          from:'directors',
+          localField:'director_id',
+          foreignField:'director_id',
+          as:'director'
+      }
+  },
+  {
+      $unwind:{
+          path:'$director',
+          
+
+      }
+  }
+  ]);
 
   promise.then((data) => {
     res.json(data);

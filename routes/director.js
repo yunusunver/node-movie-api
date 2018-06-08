@@ -4,6 +4,8 @@ const router=express.Router();
 
 const Director=require('../models/Director');
 
+
+
 router.post('/',(req,res,next)=>{
     const director=new Director(req.body);
     const promise=director.save();
@@ -140,7 +142,7 @@ router.delete('/:director_id',(req,res,next)=>{
     promise.then((data) => {
         if(!data)
             next({message:'the director wa not found.'})
-        res.json(data)
+        res.json({status:1})
     }).catch((err) => {
         res.json(err)
     });
