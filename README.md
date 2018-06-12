@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/yunusunver/node-movie-api.svg?branch=master)](https://travis-ci.org/yunusunver/node-movie-api)
 # Movies
 
 | Route | HTTP Verb | POST Body | Description |
